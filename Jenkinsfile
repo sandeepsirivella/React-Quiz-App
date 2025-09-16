@@ -34,16 +34,10 @@ pipeline {
         }
         stage('Docker Build & Run') {
             steps {
-                script {
-                    def dockerDir = "Dockerfile".replaceAll("/Dockerfile$","")
-                    if (dockerDir == "") { dockerDir = "." }
-                    echo "Building Docker image from Dockerfile in ${dockerDir}..."
-                    sh "docker build -t ${DOCKER_IMAGE} -f Dockerfile ${dockerDir}"
-                    echo "Cleaning up old container (if exists)..."
-                    sh "docker rm -f ${APP_NAME} || true"
-                    echo "Running new Docker container..."
-                    sh "docker run -d --name ${APP_NAME} -p 6062:5000 ${DOCKER_IMAGE}"
-                }
+                sh """
+                docker build -t maa:1 .
+                docker run -d -it -p 6061:5000 maa:1 
+                """
             }
         }
         stage('Deploy') {
