@@ -34,11 +34,17 @@ pipeline {
         stage('Docker Build & Run') {
             steps {
                 sh """
-                docker build -t maa:1 .
-                docker run -d -it -p 6061:5000 maa:1 
+                if [ -f Dockerfile ]; then
+                    docker build -t $DOCKER_IMAGE .
+                    docker run -d -p 6061:80 $DOCKER_IMAGE
+                else
+                    echo "❌ Dockerfile not found!"
+                    exit 1
+                fi
                 """
             }
         }
+
         stage('Deploy') {
             steps {
                 echo 'Application is now running inside Docker container.'
