@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        aPP_NAME = "react-Quiz-App"
+        aPP_NAME = "react-quiz-app"
         DOCKER_IMAGE = "$aPP_NAME"
     }
 
