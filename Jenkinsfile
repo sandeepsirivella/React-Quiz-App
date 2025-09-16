@@ -35,7 +35,7 @@ pipeline {
         stage('Docker Build & Run') {
             steps {
                 echo "Building Docker image from Dockerfile..."
-                sh "docker build -t $DOCKER_IMAGE Dockerfile ."
+                sh "docker build -t $DOCKER_IMAGE ."
                 echo 'Cleaning up old container (if exists)...'
                 sh "docker rm -f $APP_NAME || true"
                 echo 'Running new Docker container...'
