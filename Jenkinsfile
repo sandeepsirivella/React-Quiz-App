@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/md-kawsar-ali/React-Quiz-App.git'
+                git branch: 'main', url: 'https://github.com/sandeepsirivella/React-Quiz-App.git'
             }
         }
 
