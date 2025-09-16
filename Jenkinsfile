@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME = "React-Quiz-App"
+        APP_NAME = "react-Quiz-App"
         DOCKER_IMAGE = "${APP_NAME}:latest"
     }
 
