@@ -36,7 +36,7 @@ pipeline {
                 sh """
                 if [ -f Dockerfile ]; then
                     docker build -t $DOCKER_IMAGE .
-                    docker run -d -p 6061:3000 $DOCKER_IMAGE
+                    docker run -d -p 6062:3000 $DOCKER_IMAGE
                 else
                     echo "❌ Dockerfile not found!"
                     exit 1
