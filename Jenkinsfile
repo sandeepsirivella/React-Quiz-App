@@ -8,7 +8,7 @@ pipeline {
 
     environment {
         aPP_NAME = "react-Quiz-App"
-        DOCKER_IMAGE = "$aPP_NAME:latest"
+        DOCKER_IMAGE = "$aPP_NAME"
     }
 
     stages {
